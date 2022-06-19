@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button-blue {
+  @apply bg-violet-500 text-white px-4 py-1 rounded-md mx-auto;
+}
