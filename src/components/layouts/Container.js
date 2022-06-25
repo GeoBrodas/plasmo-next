@@ -1,19 +1,32 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
+function Container({ children, ...props }) {
+  function greeting() {
+    // make a function to greet based on time of the day
+    const time = new Date().getHours()
 
-function Container({ children }) {
-  const router = useRouter()
+    if (time < 12) {
+      return "Good Morning!"
+    }
+    if (time < 18) {
+      return "Good Afternoon!"
+    }
+    return "Good Evening!"
+  }
 
   return (
     <div
       style={{
-        padding: "20px"
+        padding: "20px 10px"
       }}>
+      <div>
+        <p className="greeting">{greeting()}</p>
+      </div>
+
       {children}
       {/* Buttons */}
-      <Link href={"/help"}>
-        <button className="button-blue">Next page</button>
-      </Link>
+
+      <button onClick={() => props.setTasks([])} className="button-blue">
+        Reset tasks
+      </button>
     </div>
   )
 }
