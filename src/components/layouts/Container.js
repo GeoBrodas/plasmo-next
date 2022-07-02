@@ -1,3 +1,7 @@
+import { Storage } from "@plasmohq/storage"
+
+const storage = new Storage()
+
 function Container({ children, ...props }) {
   function greeting() {
     // make a function to greet based on time of the day
@@ -24,7 +28,12 @@ function Container({ children, ...props }) {
       {children}
       {/* Buttons */}
 
-      <button onClick={() => props.setTasks([])} className="button-blue">
+      <button
+        onClick={async () => {
+          props.setTasks([])
+          await storage.remove("tasks")
+        }}
+        className="button-blue">
         Reset tasks
       </button>
     </div>

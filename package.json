@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "@plasmohq/storage": "^0.6.2",
     "next": "^12.1.6",
     "plasmo": "latest",
     "react": "18.2.0",
