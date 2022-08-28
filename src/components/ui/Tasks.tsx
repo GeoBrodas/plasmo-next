@@ -6,12 +6,12 @@ const storage = new Storage()
 
 function Tasks({ data, setTasks }) {
   function removeTask(index: number) {
-    setTasks(data.filter((_, i) => i !== index))
+    setTasks(data.filter((task: string, i: number) => i !== index))
 
     // remove from local storage
     storage.set(
       "tasks",
-      data.filter((_, i) => i !== index)
+      data.filter((task: string, i: number) => i !== index)
     )
   }
 
@@ -20,7 +20,7 @@ function Tasks({ data, setTasks }) {
       {data?.length !== 0 ? (
         data?.map((task: String, index: number) => (
           <div
-            className="border-2 flex items-center justify-between p-2 my-2 rounded-md"
+            className="border-2 bg-white flex items-center justify-between p-2 my-2 rounded-md"
             key={index}>
             <p>{task}</p>
 

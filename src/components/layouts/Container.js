@@ -19,7 +19,9 @@ function Container({ children, ...props }) {
   return (
     <div
       style={{
-        padding: "20px 10px"
+        padding: "40px 20px",
+        // add gradient
+        background: "linear-gradient(to top, #BADBFB , #FFFFFF )"
       }}>
       <div>
         <p className="greeting">{greeting()}</p>
@@ -28,14 +30,14 @@ function Container({ children, ...props }) {
       {children}
       {/* Buttons */}
 
-      <button
+      {/* <button
         onClick={async () => {
           props.setTasks([])
           await storage.remove("tasks")
         }}
         className="button-blue">
         Reset tasks
-      </button>
+      </button> */}
     </div>
   )
 }

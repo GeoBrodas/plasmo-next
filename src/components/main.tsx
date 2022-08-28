@@ -18,9 +18,7 @@ export function Main({ name = "Extension" }) {
     () => {
       // fetch tasks from the local storage
       storage.get("tasks").then(
-        (tasks) => {
-          setTasks(tasks || [])
-        },
+        (tasks) => setTasks(tasks || []),
         // if there are no tasks, set an empty array
         () => setTasks([])
       )
@@ -40,9 +38,6 @@ export function Main({ name = "Extension" }) {
   return (
     <Container setTasks={setTasks}>
       <div className="py-10 px-6">
-        <h2>
-          Welcome to <a href="https://www.plasmo.com">Todo app</a> {name}!
-        </h2>
         <input
           placeholder="Type something here"
           className="rounded-md my-3 p-2 border-2 border-gray-300"
